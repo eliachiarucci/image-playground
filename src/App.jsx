@@ -28,7 +28,7 @@ function App() {
   const [imageData, setImageData] = useState(null);
   function gcd(a, b) {
     if (b > a) {
-      temp = a;
+      let temp = a;
       a = b;
       b = temp;
     }
@@ -61,11 +61,11 @@ function App() {
           width: img.width,
           height: img.height,
           aspectRatio: aspectRatio,
-          size: (sizeInKb/1000).toFixed(1),
+          size: (sizeInKb / 1000).toFixed(1),
         });
       };
     }
-  }, [imageRef.current]);
+  }, [imageRef.current, image]);
 
   const handleThemeChange = (e) => {
     setTheme(e.target.value);
@@ -184,6 +184,7 @@ function App() {
             type="file"
             name="myImage"
             style={{ width: "180px" }}
+            accept="image/png, image/jpeg, image/svg, image/jpg, image/webp"
             onChange={handleImageInput}
           ></input>
         </div>
